@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>iSPY - Boss Fight</title>
+
+    <link rel="stylesheet" href="BossFight.css">
+    <script type="text/javascript" src="BossFight.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+
+  </head>
+  <body onload="fillHealthBar(); fillInventory(); fillName(); setSoundEffect(); myTimer();">
+
+    <audio id="scream" src="audio/boss_death.mp3"></audio>
+    <audio id="attackSoundEffect" src=""></audio>
+    <audio id="oof" src="audio/oof.wav" type"audio/wav"></audio>
+    <audio loop id="bossmusic" src="audio/bossmusic.mp3" type="audio/mp3"></audio>
+    <div id="wrapper">
+
+      <button id= "musicbtn" onclick="playMusic()">Music: Off</button>
+
+      <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+      <div id="help" onmouseover="showHelp();" onmouseout="hideHelp();">HELP</div>
+      <label class="switch">
+        <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+        <span class="slider round"></span>
+      </label>
+      <div id="helpSection">
+        <p> <span id="printName"></span>, you've made your way to the executive lounge to find Quirino relaxing, oblivious to your presence.</p>
+        <p>You'll take turns to attack, but your unexpected arrival has given you the upper hand:</p>
+        <p>Each time Quirino attacks you'll have a short window to block his attacks, improving your chances of survival</p>
+        <p id="fun">if you weren't looking for help and just came over here out of curiosity... Why do cows wear bells?</p>
+        <p id="fun"> <u>Because their horns don't work!</u> </p>
+      </div>
+
+
+      <div id="centreBox">
+
+        <div id="main">
+          <h1 id="h">The Boss</h1>
+          <p>You climb through the air conditioning vents,
+            trying to be as quiet as possible. You smell the faint scent of a rich cigar; you know this could be the lead you need!
+          </p>
+          <p>As the cigar smoke grows stronger,
+            peering through the vents you spot a lavish looking lounge. Relaxing in a luxurious chair behind a desk, you see Quirino. The smoke curls from the end of his Artisan Canna cigar... <em>the scent of peaceful obliviousness.</em>
+          </p>
+
+          <p id="choice"> Your target is in sight! Will you: </p>
+          <div id="col1">
+            <button id="normalDrop" onclick="startFight();"> <span>Drop In</span> </button>
+          </div>
+
+          <div id="col2">
+            <button id="stunDrop" onclick="stunOption();"> <span>Stun Him <br>&lt;REQUIRES STUN GRENADE&gt;</span> </button>
+          </div>
+
+        </div>
+
+        <div id="game">
+          <p id="stunInfo">You throw your stun grenade with perfect precision, catching Quirino off guard. His reaction times are slowed and you now have more time to block to his attacks!</p>
+          <p id="dropInfo">Your sudden drop-in has allowed you the opportunity to get the first hit.</p>
+          <p id="lastAttack"> <span id="recipient"></span> took <span id="lastAttackDamage"></span> damage!</p>
+          <p id="attackBlocked">Attack Blocked!</p>
+
+          <div id="playerCol">
+            <p>Your Health:</p>
+            <p id="playerHealthLabel">100%</p>
+            <div id="playerHealthBar">
+              <div id="playerHealthValue"></div>
+            </div>
+          </div>
+
+          <div id="enemyCol">
+            <p>Quirino's Health:</p>
+            <p id="enemyHealthLabel">100%</p>
+            <div id="enemyHealthBar">
+              <div id="enemyHealthValue"></div>
+            </div>
+          </div>
+
+        <button id="attack" onclick="inflictDamageToEnemy();"><span>Attack!</span></button>
+
+        <div id="blockColumns">
+          <div id="blockCol1">
+            <button id="blockAttack" onclick="blockSuccessful();">BLOCK!</button>
+          </div>
+
+          <div id="blockCol2">
+            <button id="blockAttack" onclick="blockSuccessful();">BLOCK!</button>
+          </div>
+
+          <div id="blockCol3">
+            <button id="blockAttack" onclick="blockSuccessful();">BLOCK!</button>
+          </div>
+        </div>
+
+        <div id="wonFight">
+          <h1 id="h">SUCCESS!</h1>
+          <p>Many have tried and failed. You've done what was thought to be impossible, but it's just another mission to you... <em>and it's not over yet!</em></p>
+          <button id="winContinue" class="button1" onclick="winNextPage();"><span>Continue</span></button>
+        </div>
+
+        <div id="lostFight">
+          <h1 id="h">MISSION FAILED!</h1>
+          <p>You made it so far, but in the end Quirino was too strong.</p>
+          <button  id="lossContinue" class="button1" onclick="lossNextPage();"><span>Continue</span></button>
+        </div>
+
+      </div>
+
+      </div>
+
+      <button id="useBandageButton" onclick="useBandages();">Use Bandages</button>
+      <div id="inventory" onmouseover="showInventory();" onmouseout="hideInventory();">
+        <p>Inventory</p>
+      </div>
+      <div id="inventorySection">
+        <p><u><b>Your Inventory:</b></u></p>
+        <p>Weapon > <span id="userWeapon"></span> </p>
+        <p>Equipment #1 > <span id="userEquipment1"></span> </p>
+        <p>Equipment #2 > <span id="userEquipment2"></span> </p>
+      </div>
+
+      <div id="healthBar">
+        <p id="yourHealthBR">Your Health:</p>
+        <div id="playerHealthBarBR">
+          <div id="playerHealthValueBR"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

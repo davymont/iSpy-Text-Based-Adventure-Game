@@ -1,0 +1,140 @@
+
+
+.backgroundCircle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.backgroundCircleSvg {
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.foregroundCircle {
+  fill: none;
+  stroke: none;
+}
+
+.foregroundElapsed {
+  stroke-width: 10px;
+  stroke: black;
+}
+
+.foregroundRemaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: 1s linear all;
+  -o-transition: 1s linear all;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.foregroundRemaining.white {
+  color: white;
+}
+
+.foregroundRemaining.orange {
+  color: orange;
+}
+
+.foregroundRemaining.red {
+  color: red;
+}
+
+.text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  bottom: -12%;
+  left: 15%;
+  font-size: 42px;
+}
+
+.textPop {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  bottom: -12%;
+  left: 13%;
+  font-size: 42px;
+  -webkit-animation: pop 1s linear infinite;
+          animation: pop 1s linear infinite;
+}
+
+.textPop2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  bottom: -12%;
+  left: 11%;
+  font-size: 42px;
+  -webkit-animation: popTwice 1s linear 5;
+          animation: popTwice 1s linear 5;
+}
+
+@-webkit-keyframes pop{
+  3%   {font-size: 30px;
+        opacity: 0.2;}
+  10%  {font-size: 50px;
+        opacity: 1;
+        -webkit-transform: translateX(-5%);
+                transform: translateX(-5%);}
+  30%  {font-size: 42px;
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);}
+}
+
+@-webkit-keyframes popTwice{
+  3%   {font-size: 30px;
+        opacity: 0.2;}
+  10%  {font-size: 50px;
+        opacity: 1;
+        -webkit-transform: translateX(-5%);
+                transform: translateX(-5%);}
+  30%  {font-size: 42px;
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);}
+
+        33%   {font-size: 30px;
+              opacity: 0.2;}
+        40%  {font-size: 50px;
+              opacity: 1;
+              -webkit-transform: translateX(-5%);
+                      transform: translateX(-5%);}
+        60%  {font-size: 42px;
+              -webkit-transform: translateX(0%);
+                      transform: translateX(0%);}
+}
+
+.shrink {
+  font-size: 5px;
+  transform: scaleX(0.1);
+  transform: scaleY(0.1);
+  transform-origin: center;
+  opacity: 0;
+  transition: 2s ease;
+}
+
+.dissapear {
+  font-size: 5px;
+  transform: scaleX(0.1);
+  transform: scaleY(0.1);
+  transform-origin: center;
+  opacity: 0;
+  transition: 0.2s ease;
+}

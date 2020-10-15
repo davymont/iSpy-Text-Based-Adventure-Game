@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- background image made by group -->
+<!-- dog photo https://pixabay.com/photos/working-dog-military-growling-1781147/ -->
+<!-- countdown timer based on tutorial at https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/ -->
+<html>
+
+  <head>
+    <title>iSPY - Dogfight</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="buttonChase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../countdownCircle/countdownCircle.css">
+    <link rel="stylesheet" href="buttonChase.css">
+
+    <audio loop id="dogmusic" src="audio/dogmusic.mp3" type="audio/mp3"></audio>
+  </head>
+
+
+  <body onload="hideDog(); setSoundEffect(); fillInventory(); fillName(); myTimer();">
+    <audio id="fenceSoundEffect" src="audio/fence_noise.wav"></audio>
+    <audio id="attackSoundEffect" src=""></audio>
+    <audio id="dogBarkSoundEffect" src="audio/dog_bark.wav"></audio>
+
+    <div class="wrapper">
+      <div id="timerDisplay"></div>
+      <button id= "musicbtn" onclick="playMusic();">Music: Off</button>
+      <script type="text/javascript" src="../countdownCircle/countdownCircle.js"></script>
+
+      <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+      <div id="help" onmouseover="showHelp()" onmouseout="hideHelp();">HELP</div>
+      <label class="switch">
+        <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+        <span class="slider round"></span>
+      </label>
+      <div id="hidden">
+        <p>Hey, <span id="printName"></span>, if you're looking for help, you're in the right place.</p><p>We can get through this together :)</p>
+        <p>Click 'Attack the Guard Dog' button if you wish to try to fight the dog to make your way further into the compound</p>
+        <p>Click 'Cut the Fence' button if you have wirecutters and want to sneak past the dog</p>
+        <p>If you chose to fight the dog, you must make sure your attacks are accurate; chase the dog with your mouse and
+          try to click on it to attack it. You must defeat it before the guards see you! Good luck!</p>
+          <p id="fun">if you weren't looking for help and just came over here out of curiosity... What do you get from nervous cows?</p>
+          <p id="fun"><u>"Milkshakes!"</u></p>
+      </div>
+
+      <div id="centreBox">
+        <div id="main">
+          <h1 id="h">Dog Fight!</h1>
+          <p>> 04:00, 26<sup>th</sup> April 2024... <br>> Somewhere on the outskirts of Mexico City... </p>
+          <p id="Montserrat">A stealthy insertion from your team leaves you standing atop a hill. Below, a devilish looking compound dominates the valley.
+            <br>  A tall, spiked fence surrounds it, with a vicious looking guard dog patrolling the perimeter.
+          </p>
+
+          <p>Will you: </p>
+          <div id="col1">
+            <button id="fightDog" onclick="fightDog();"><span>Attack the Guard Dog</span></button>
+          </div>
+
+          <div id="col2">
+            <button id="cutFence" onclick="cutFence();"><span>Cut the Fence</span></button>
+          </div>
+
+       </div>
+
+       <div id="fenceChoice">
+         <p>The fence proves to be heavily reinforced. Carefully and quietly you cut a gap, only just wide enough for you to slip through.</p>
+         <p>The fence has taken it's toll on your wirecutters, and they now look unusable. You bury them here to save weight.
+           and continue your way around the compound to find a way inside...
+         </p>
+         <button id="fenceContinue" onclick="nextPage();"><span>Continue Searching</span></button>
+       </div>
+
+       <div id="dogChoice">
+
+         <p id="dogIntro">You throw a small stone to distract the dog.  Quickly, you try to sneak up on it from behind.
+         <br><i>You strike, but it jumps out of the way immediately... this is going to be harder than you thought!</i></p>
+
+         <div id="dogCol1" class="hidden">
+           <p>Your Health: </p>
+           <p id="playerHealthLabel">100%</p>
+           <div id="playerHealthBar">
+             <div id="playerHealthValue"></div>
+           </div>
+        </div>
+
+        <div id="dogCol2" class="hidden">
+          <p>Dog's Health: </p>
+          <p id="dogHealthLabel">100%</p>
+          <div id="dogHealthBar">
+            <div id="dogHealthValue"></div>
+          </div>
+        </div>
+
+        <p id="lastAttack"> <span id="recipient"></span> took <span id="lastAttackDamage"></span> damage!</p>
+
+       </div>
+
+       <div id="lostFight">
+         <h1>MISSION FAILED!</h1>
+         <p id="Montserrat">You took too long, guards surround you from every side! </p>
+         <p id="Montserrat"><em>They raise their rifles; you close your eyes...</em></p>
+         
+         <label for="button">Game Over:</label>
+         <button onclick="nextPageLoss();" name="button"> <span>Continue</span> </button>
+       </div>
+
+       <div id="wonFight">
+         <h1>SUCCESS!</h1>
+         <p id="Montserrat">Congratulations Agent <span id="printName2"></span>. You've silenced the dog without alerting any guards!</p>
+         <p id="Montserrat">You've taken some damage, but it's not enough to slow you down. Time to find a way inside...</p>
+         <button id="dogContinue" class="button1" onclick="nextPage();"><span>Continue Mission</span></button>
+       </div>
+
+     </div>
+
+     <button id="attack" onclick="inflictDamageToDog(); moveDog();" onmouseover="moveDog()">Attack!</button>
+
+          <button id="useBandageButton" onclick="useBandages();">Use Bandages</button>
+
+         <div id="inventory" onmouseover="showInventory();" onmouseout="hideInventory();">
+           <p>Inventory</p>
+         </div>
+         <div id="inventorySection">
+           <p><u><b>Your Inventory:</b></u></p>
+           <p>Weapon > <span id="userWeapon"></span> </p>
+           <p>Equipment #1 > <span id="userEquipment1"></span> </p>
+           <p>Equipment #2 > <span id="userEquipment2"></span> </p>
+         </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title>iSPY - Escape!</title>
+
+    <link rel="stylesheet" href="escape.css">
+    <link rel="stylesheet" href="../countdownCircle/countdownCircleEscape.css">
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <script src="escape.js"></script>
+  </head>
+
+  <body onload="loadEscape(); updateHealthBar(); fillInventory(); myTimer(); cfillName();">
+    <div id="timerDisplay"></div>
+    <script type="text/javascript" src="../countdownCircle/countdownCircle.js"></script>
+
+    <audio id="guard" src="audio/guard_hey.mp3"></audio>
+    <audio id="whackSound" src="audio/whack.mp3"></audio>
+    <audio id="gunSound" src="audio/gun_sound.mp3"></audio>
+    <audio id="doorSound" src="audio/door_break.wav"></audio>
+    <audio loop id="escapemusic" src="audio/escapemusic.mp3" type="audio/mp3"></audio>
+
+    <div id="wrapper">
+
+      <button id= "musicbtn" onclick="playMusic()">Music: Off</button>
+
+      <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+      <div id="help" onmouseover="showHelp();" onmouseout="hideHelp();">HELP</div>
+      <label class="switch">
+        <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+        <span class="slider round"></span>
+      </label>
+      <div id="helpSection">
+        <p> <span id="printName2"></span>, your mission is completed, but now you have to get out alive. </p>
+        <p>You will be faced with multiple choices, deciding at each point what you think is the best option.</p>
+        <p>Your equipment may come in handy, provided you've picked the necessary items for this mission. Get out!</p>
+        <p id="fun">No time for jokes Agent, you must get out alive!</p>
+      </div>
+
+      <div id="centreBox">
+        <div id="gameWon">
+          <h1 id="h">MISSION ACCOMPLISHED!</h1>
+          <h2>You escaped!</h2>
+          <p id="winInfo">Nice Job! You completed the objective and made it out alive.</p>
+          <button id="gameOver" onclick="nextPage();">Continue</button>
+        </div>
+
+        <div id="gameLost">
+          <h1 id="h">MISSION FAILED!</h1>
+          <p id="lossInfo">You took too long to make your decisions, and the guards caught up with you. It's over...</p>
+          <button id="gameOver" onclick="nextPage();">Continue</button>
+        </div>
+
+        <div id="gameInProgress">
+          <h1 id="h">Escape!</h1>
+
+          <p id="enterBarracks"></p>
+          <p id="pText"></p>
+          <p id="noGrapplingHook">You don't have a grappling hook! You'll have to find another way out.</p>
+
+          <div id="allButtons">
+            <button class="button1" name="button" id="beginButton" onclick='beginEscape(); this.style.display = "none"'><span>Begin the Escape</span></button>
+
+            <button type="button" name="button1" id="button1" onclick='btn1();'></button>
+
+            <button type="button" name="button2" id="button2" onclick='btn2();'></button>
+
+            <button type="button" name="button3" id="button3" onclick='btn3();'></button>
+
+            <button type="button" name="button4" id="button4" onclick='btn4();'></button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <button id="useBandageButton" onclick="useBandages();">Use Bandages</button>
+      <div id="inventory" onmouseover="showInventory();" onmouseout="hideInventory();">
+        <p>Inventory</p>
+      </div>
+      <div id="inventorySection">
+        <p><u><b>Your Inventory:</b></u></p>
+        <p>Weapon > <span id="userWeapon"></span> </p>
+        <p>Equipment #1 > <span id="userEquipment1"></span> </p>
+        <p>Equipment #2 > <span id="userEquipment2"></span> </p>
+      </div>
+
+      <div id="healthBar">
+        <p id="yourHealth">Your Health:</p>
+        <div id="playerHealthBar">
+          <div id="playerHealthValue"></div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>iSPY - A Text Adventure Game</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="iSPYstartpage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript">
+      function setName() {
+        localStorage.clear();
+        var enteredText = document.getElementById("myText").value;
+        localStorage.setItem("name", enteredText);
+      }
+
+      function showHelp() {
+        var x = document.getElementById("hidden");
+        x.style.display = "block";
+      }
+
+      function hideHelp() {
+        var x = document.getElementById("hidden");
+        x.style.display = "none";
+      }
+
+      function nextPage(){
+        window.location='iSPYstartpage2.html';
+      }
+
+  function easyRead() {
+   // Get the checkbox
+var checkBox = document.getElementById("easyReadCheckbox");
+
+// If the checkbox is checked, display the output text
+if (checkBox.checked == true){
+  document.body.style.backgroundImage = "url('../whiteBackgroundImage/whitebackground.jpg')";
+  document.body.style.fontSize = '150%';
+  document.getElementById("spyName").style.width = "120%";
+  document.getElementById("spyName").style.marginLeft = "-10%";
+  document.getElementById("spyName").style.marginTop = "40%";
+  document.getElementById("switchLabel").style.display = "none";
+} else {
+  document.body.style.backgroundImage = null;
+  document.body.style.backgroundImage = "url('images/iSPYstartpage.jpg')";
+  document.body.style.fontSize = '100%';
+  document.getElementById("spyName").style.width = "100%";
+  document.getElementById("spyName").style.marginLeft = "auto";
+  document.getElementById("spyName").style.marginTop = "50%";
+}
+}
+    </script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <div id="help" onmouseover="showHelp();" onmouseout="hideHelp();">HELP</div>
+        <p id="switchLabel"><strong>Toggle this switch to make it easier to read!</strong></p>
+<label class="switch">
+  <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+  <span class="slider round"></span>
+</label>
+      <div id="hidden">
+        <p>Hey, if you're looking for help, you're in the right place.</p><p>We can get through this together :)</p>
+        <p>To start the game, you need to give your character a name, this can be your own name, your favourite spy's name,
+          or anything in your wildest imagination. We just need something to refer to you as.</p>
+        <p>When you've thought of an epic name, click down there where it says 'James Bond'; James will disappear
+          and you can type in your preferred name</p>
+        <p>Once you're done with that, click 'Enter' and you'll progress to the next stage of the game. Good luck!</p>
+        <p id="fun">if you weren't looking for help and just came over here out of curiosity... What do you call a cow with no legs?</p>
+        <p id="fun"><u>"Ground Beef"</u></p>
+      </div>
+
+
+      <div id="spyName">
+        <h2>What is the name of your spy?</h2>
+
+        <input type="text" id="myText" placeholder="James Bond">
+        <button onclick="setName(); nextPage();">Enter</button>
+
+      </div>
+    </div>
+</body>
+</html>

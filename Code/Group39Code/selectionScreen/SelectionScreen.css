@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('images/page2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  font-family: 'Teko', sans-serif;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+}
+
+.wrapper {
+  max-width: 1260px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#selectionBox {
+  font-size: 2em;
+  width: 90%;
+  margin: 100px 400px 50px 100px;
+  padding: 50px 0px 50px;
+}
+
+#restart {
+	font-size: 0.7em;
+ 	position: absolute;
+ 	top: 10px;
+ 	right: 10px;
+ 	padding: 5px 8px;
+
+ 	text-decoration: none;
+ 	color: #8B0000;
+ 	transition: 0.2s all ease;
+
+  border: 1px solid black;
+  font-size: 2em;
+  background-color: white;
+  opacity: 0.7;
+  text-align: center;
+ }
+#restart:hover {
+ 	background: black;
+ 	color: #fff;
+ }
+
+ #help {
+   font-size: 0.7em;
+  	position: absolute;
+  	top: 70px;
+  	right: 10px;
+  	padding: 5px 8px;
+
+  	text-decoration: none;
+  	color: #8B0000;
+  	transition: 0.2s all ease;
+
+   border: 1px solid black;
+   font-size: 2em;
+   background-color: white;
+   opacity: 0.7;
+   text-align: center;
+  }
+
+  #help:hover {
+    background: black;
+     color: #fff;
+  }
+
+  #musicbtn {
+    color: white;
+    background-color: #050a14;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.5s;
+    font-family: georgia;
+    font-size: 2em;
+    border-radius: 5px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  #hidden {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    width: 40%;
+    margin: auto;
+    padding: 5px 10px;
+    border: 2px solid black;
+    background-color: white;
+    opacity: 0.95;
+    text-align: center;
+    z-index: 10;
+  }
+
+  #fun {
+    color: grey;
+    font-size: 0.7em;
+    font-style: italic;
+  }
+
+#weaponSelection {
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100%;
+
+  background-color: white;
+  border: 5px solid black;
+
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+#weaponSelectContent {
+  text-align: center;
+}
+
+#traversers {
+  display: inline-block;
+}
+
+#currentWeaponPicture {
+  display: block;
+  margin: 0 auto;
+  height: 150px;
+}
+
+#currentWeapon {
+  text-decoration: underline;
+  font-family: 'Teko', sans-serif;
+  font-size: 2em;
+  line-height: 0.5;
+}
+
+#alreadySelected {
+  display: none;
+}
+
+#equipmentSelection {
+  display: none;
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100%;
+
+  background-color: white;
+  border: 5px solid black;
+
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s
+}
+
+#currentEquipment {
+  text-decoration: underline;
+}
+
+#currentEquipmentPicture {
+  display: block;
+  margin: 0 auto;
+  height: 150px;
+}
+
+#equipmentSelectContent {
+  text-align: center;
+}
+
+#equip2Button {
+  display: none;
+}
+
+#preGameInfo {
+  display: none;
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100%;
+
+  background-color: white;
+  border: 5px solid black;
+
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s
+}
+
+#preGameInfoContent {
+  text-align: center;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+u {
+  color: #8B0000;
+}
+
+#e1, #e2, #w1 {
+  color: #8B0000;
+  text-decoration: underline;
+}
+
+button {
+  color: white;
+  background-color: #050a14;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.5s;
+  font-size: 0.7em;
+  border-radius: 5px;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+button span:after {
+  opacity: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+button:hover span {
+  background-color: #880000;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {
+  border-radius: 4px;
+  background-color: #050a14;
+  color: white;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: auto;
+
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+  background-color: #880000;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: absolute;
+  top: 140px;
+  right: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

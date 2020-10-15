@@ -1,0 +1,450 @@
+
+    * {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('images/dog.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      font-family: 'Teko', sans-serif;
+    }
+
+    #h {
+      font-family: 'Teko', sans-serif;
+      text-align: center;
+    }
+
+    .wrapper {
+      max-width: 1260px;
+      padding: 5px;
+    }
+
+
+    #centreBox {
+      width: 80%;
+      margin-top: -10%;
+      margin-left: 37.5%;
+      margin-right: auto;
+      border: 5px solid black;
+      background-color: white;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 2em;
+    }
+
+    #musicbtn {
+      color: white;
+      background-color: #050a14;
+      cursor: pointer;
+      padding: 10px;
+      transition: all 0.5s;
+      font-family: georgia;
+      font-size: 2em;
+      border-radius: 5px;
+      position: absolute;
+      left: 220px;
+      top: 10px;
+    }
+
+    #main {
+      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      overflow: auto;
+    }
+
+    #restart {
+    	font-size: 0.7em;
+     	position: absolute;
+     	top: 10px;
+     	right: 10px;
+     	padding: 5px 8px;
+     	text-decoration: none;
+     	color: #8B0000;
+     	-webkit-transition: 0.2s all ease;
+     	-o-transition: 0.2s all ease;
+     	transition: 0.2s all ease;
+      border: 1px solid black;
+      font-size: 2em;
+      background-color: white;
+      opacity: 0.7;
+      text-align: center;
+     }
+    #restart:hover {
+     	background: black;
+     	color: #fff;
+     }
+
+     #help {
+       font-size: 0.7em;
+      	position: absolute;
+      	top: 70px;
+      	right: 10px;
+      	padding: 5px 8px;
+      	text-decoration: none;
+      	color: #8B0000;
+      	-webkit-transition: 0.2s all ease;
+      	-o-transition: 0.2s all ease;
+      	transition: 0.2s all ease;
+       border: 1px solid black;
+       font-size: 2em;
+       background-color: white;
+       opacity: 0.7;
+       text-align: center;
+      }
+
+      #help:hover {
+        background: black;
+         color: #fff;
+      }
+
+      #hidden {
+        display: none;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5em;
+        position: absolute;
+        top: 130px;
+        right: 10px;
+        width: 40%;
+        margin: auto;
+        padding: 5px 10px;
+        border: 2px solid black;
+        background-color: white;
+        opacity: 0.95;
+        text-align: center;
+        z-index: 10;
+      }
+
+      #fun {
+        color: grey;
+        font-size: 0.7em;
+        font-style: italic;
+      }
+
+    #col1 {       /*Column for Attack Dog Button */
+      width: 50%;
+      float: left;
+      text-align: center;
+      padding-bottom: 20px;
+      margin: 0 auto;
+    }
+
+    #col2 {       /*Column for Cut Fence Button */
+      width: 50%;
+      float: left;
+      text-align: center;
+      padding-bottom: 20px;
+      margin: 0 auto;
+    }
+
+    #fightDog {
+      width: 250px;
+    }
+
+    #fenceContinue {
+      margin: 0 auto;
+      display: block;
+      width: 250px;
+    }
+
+    #fenceChoice {
+      text-align: center;
+      font-size: 0.8em;
+      font-family: 'Montserrat', sans-serif;
+      display: none;
+      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      overflow: auto;
+    }
+
+    #dogChoice {
+      display: none;
+      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      overflow: auto;
+    }
+
+    #dogCol1 {
+      width: 50%;
+      float: left;
+      text-align: center;
+      padding-bottom: 20px;
+      margin: 0 auto;
+    }
+
+    #dogCol2 {
+      width: 50%;
+      float: left;
+      text-align: center;
+      padding-bottom: 20px;
+      margin: 0 auto;
+    }
+
+    #playerHealthLabel, #dogHealthLabel {
+      display: inline-block;
+    }
+
+    #playerHealthBar, #dogHealthBar {
+      position: relative;
+      height: 30px;
+      width: 250px;
+      border: 2px solid black;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    #playerHealthValue, #dogHealthValue {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: green;
+    }
+
+    #lastAttack {
+      display: none;
+    }
+
+    #lostFight {
+      display: none;
+      width: 100%;
+      text-align: center;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      overflow: auto;
+    }
+
+    #wonFight {
+      display: none;
+      width: 100%;
+      text-align: center;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      overflow: auto;
+    }
+
+    .hidden{
+    	visibility: hidden;
+    }
+
+    #Montserrat {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8em;
+      text-align: center;
+    }
+
+    #useBandageButton {
+      display: none;
+      position: absolute;
+      left: 65px;
+      bottom: 120px;
+      width: 150px;
+      font-size: 1em;
+    }
+
+    button {
+      color: white;
+      background-color: #050a14;
+      width: 200px;
+      cursor: pointer;
+      padding: 10px;
+      -webkit-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s;
+      font-family: georgia;
+      font-size: 0.7em;
+      border-radius: 5px;
+    }
+
+    button span {
+      cursor: pointer;
+      display: inline-block;
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s;
+    }
+
+    button span:after {
+      opacity: 0;
+      top: 0;
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s;
+    }
+
+    button:hover span {
+      background-color: #880000;
+    }
+
+    button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+    .button1 {
+      border-radius: 4px;
+      background-color: #050a14;
+      color: white;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: auto;
+      width: 320px;
+    }
+
+    .button1 span {
+      cursor: pointer;
+      display: inline-block;
+      transition: 0.5s;
+    }
+
+    .button1 span:after {
+      content: '\00bb';
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button1:hover span {
+      padding-right: 25px;
+      background-color: #880000;
+    }
+
+    .button1:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+      #attack {
+          position: absolute;
+          border: none;
+          background-color: #050a14;
+          color: white;
+          text-align: center;
+          font-size: 28px;
+          padding: 20px;
+          width: 200px;
+          height: 321px;
+          -webkit-transition: all 0.2s;
+          -o-transition: all 0.2s;
+          transition: all 0.2s;
+          cursor: pointer;
+          margin: auto;
+          background: url('images/dog3.gif');
+          padding: 0;
+        }
+
+        #attack:hover {
+          border: none;
+          background: url('images/dog3hit.gif');
+          font-size: 50px;
+        }
+
+        #inventory {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.7em;
+          text-align: center;
+          position: absolute;
+          left: 10px;
+          font-weight: bold;
+          bottom: 10px;
+          width: 315px;
+          height: 100px;
+          border: 5px solid black;
+          background-color: white;
+          background: rgba(255, 255, 255, 0.8);
+        }
+
+        #inventorySection {
+          display: none;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.5em;
+          position: absolute;
+          left: 10px;
+          bottom: 115px;
+          margin: auto;
+          padding: 5px 10px;
+          border: 5px solid black;
+          background-color: white;
+          opacity: 0.95;
+          text-align: left;
+          z-index: 10;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+          position: absolute;
+          top: 140px;
+          right: 10px;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        input:checked + .slider {
+          background-color: black;
+        }
+
+        input:focus + .slider {
+          box-shadow: 0 0 1px black;
+        }
+
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 34px;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iSPY - Intro </title>
+    <link rel="stylesheet" href="iSPYstartpage2.css">
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+      function fillName() {
+        var spyName = localStorage.getItem("name");
+        document.getElementById("printName").innerHTML = spyName;
+        document.getElementById("printName2").innerHTML = spyName;
+      }
+
+      function showHelp() {
+        var x = document.getElementById("hidden");
+        x.style.display = "block";
+      }
+
+      function hideHelp() {
+        var x = document.getElementById("hidden");
+        x.style.display = "none";
+      }
+
+      function nextPage() {
+        window.location = "../selectionScreen/SelectionScreen.html";
+      }
+
+      function easyRead() {
+       // Get the checkbox
+    var checkBox = document.getElementById("easyReadCheckbox");
+
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      document.body.style.backgroundImage = "url('../whiteBackgroundImage/whitebackground.jpg')";
+      document.body.style.fontSize = '125%';
+      document.getElementById("gameInfoBox").style.width = "120%";
+      document.getElementById("gameInfoBox").style.marginLeft = "-10%";
+    } else {
+      document.body.style.backgroundImage = null;
+      document.body.style.backgroundImage = "url('images/iSPYstartpagenotextbrightergradient.jpg')";
+      document.body.style.fontSize = '100%';
+      document.getElementById('gameInfoBox');
+      document.getElementById("gameInfoBox").style.width = "100%";
+      document.getElementById("gameInfoBox").style.marginLeft = "auto";
+    }
+    }
+    </script>
+  </head>
+  <body onload="fillName();">
+
+    <div class="wrapper">
+
+      <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+      <div id="help" onmouseover="showHelp();" onmouseout="hideHelp();">HELP</div>
+      <label class="switch">
+        <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+        <span class="slider round"></span>
+      </label>
+      <div id="hidden">
+        <p>Hey, <span id="printName2"></span>, if you're looking for help, you're in the right place.</p><p>We can get through this together :)</p>
+        <p>This is just an introduction to the game. We're setting the scene for you.</p>
+        <p>When you're ready, just click 'Begin' and we'll get you set up with some equipment for your mission. Good luck!</p>
+        <p id="fun">if you weren't looking for help and just came over here out of curiosity... What do you call a cow with two legs?</p>
+        <p id="fun"><u>"Lean Beef"</u></p>
+      </div>
+
+
+      <div id="gameInfoBox">
+        <h1 id="title"><u>iSPY</u></h1>
+        <h2>A heart-stopping mission of <span id="red"><em>infiltration</em></span> and <span id="red"><em>assassination</em></span><i>!</i></h2>
+        <p>You're Agent <span id="printName"></span>, the most feared and effective spy in the business.</p>
+        <p> Your skills have been called upon to assassinate the notorious warlord, Quirino 'The Viper' Vacas.</p>
+      </div>
+
+      <div class="container">
+        <button class="button" onclick="nextPage();"> <span>BEGIN</span> </button>
+      </div>
+
+    </div>
+  </body>
+</html>

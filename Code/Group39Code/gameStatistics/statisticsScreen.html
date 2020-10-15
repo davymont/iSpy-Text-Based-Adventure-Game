@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>iSPY - Statistics</title>
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <audio loop id="victorymusic" src="audio/victorymusic.mp3" type="audio/mp3"></audio>
+    <audio loop id="lossmusic" src="audio/lossmusic.mp3" type="audio/mp3"></audio>
+
+    <link rel="stylesheet" href="statisticsScreen.css">
+    <script src="statisticsScreen.js"></script>
+
+  </head>
+  <body onload="loadStatistics();">
+
+    <div id="wrapper">
+      <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+      <button id= "musicbtn" onclick="playMusic()">Music: Off</button>
+
+      <div id="centrebox">
+        <h1>Statistics - <span id="lostOrWon"></span> </h1>
+        <p id="deathP">Cause Of Death: <span id="causeOfDeath"></span> </p>
+        <p>Damage Received: <span id="damageReceived"></span> </p>
+        <p>Damage Given: <span id="damageGiven"></span> </p>
+        <p>Time Elapsed: <span id="timeElapsed"></span> seconds </p>
+      </div>
+
+    </div>
+  </body>
+</html>

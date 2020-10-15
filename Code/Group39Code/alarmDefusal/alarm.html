@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSPY - The Alarm!</title>
+
+    <link rel="stylesheet" href="alarm.css">
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="alarm.js"></script>
+
+    <audio loop id="bombmusic" src="audio/bombmusic.mp3" type="audio/mp3"></audio>
+
+    <audio id="btnbeep" src="audio/buttonbeep.wav" type="audio/wav"></audio>
+    <audio id="right" src="audio/right.mp3" type="audio/mp3"></audio>
+    <audio id="wrong" src="audio/wrong.mp3" type="audio/mp3"></audio>
+    <audio loop id="siren" src="audio/alarm.mp3" type="audio/mp3"></audio>
+
+
+  </head>
+
+  <body onload="fillName(); fillInventory(); fillHealthBar(); myTimer();">
+
+    <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+    <div id="help" onmouseover="showHelp();" onmouseout="hideHelp();">HELP</div>
+    <label class="switch">
+      <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+      <span class="slider round"></span>
+    </label>
+    <div id="helpSection">
+      <p> <span id="printName"></span> You've come across an alarm that needs disabled - and fast!</p>
+      <p>A mathematical problem appears on the screen, and you need to solve it to turn off the alarm.</p>
+      <p>Enter your answer using the keypad, and click the tick when you think you've got it.</p>
+      <p>You can also press 'c' to clear any input you've already given.</p>
+      <p id="fun">if you weren't looking for help and just came over here out of curiosity... What type of magazines do cows read?
+</p>
+      <p id="fun"> <u>"Cattlelogs"</u> </p>
+    </div>
+
+    <button id= "musicbtn" onclick="playMusic()">Music: Off</button>
+
+    <div id="bomb">
+      <div id="screen" hidden>
+        <textarea type="text" id="display" maxlength="4" readonly></textarea>
+        <h1 id="timer">40</h1>
+      </div>
+      <div id="btnrow1" hidden>
+        <button onclick="buttonPush1(); buttonBeep()">1</button>
+        <button onclick="buttonPush2(); buttonBeep()">2</button>
+        <button onclick="buttonPush3(); buttonBeep()">3</button>
+      </div>
+      <div id="btnrow2" hidden>
+        <button onclick="buttonPush4(); buttonBeep()">4</button>
+        <button onclick="buttonPush5(); buttonBeep()">5</button>
+        <button onclick="buttonPush6(); buttonBeep()">6</button>
+      </div>
+      <div id="btnrow3" hidden>
+        <button onclick="buttonPush7(); buttonBeep()">7</button>
+        <button onclick="buttonPush8(); buttonBeep()">8</button>
+        <button onclick="buttonPush9(); buttonBeep()">9</button>
+      </div>
+      <div id="btnrow4" hidden>
+        <button onclick="clearDisplay(); buttonBeep()">c</button>
+        <button onclick="buttonPush0(); buttonBeep()">0</button>
+        <button onclick="submitCode()">✓</button>
+      </div>
+    </div>
+
+    <div id="preGameInfo">
+      <h1 id="h">Stop the Alarm!</h1>
+
+      <p>You make your way through the compound, when you spot a possible way into the building. <em>A ventilation shaft!</em>&nbsp; Just as you're about to clamber in, you hear a frantic beeping sound.</p>
+      <p><em>An alarm!</em>&nbsp; In order to stop the alarm, you will need to figure out the valid code based on a mathematical problem that will appear.</p>
+      <p>If you get it wrong three times or the clock runs out, it will go off!
+      Are you ready?</p>
+
+      <button id="alarmstart" class="button1" onclick="timerStart(); randomiseAlarm();"><span>Begin</span></button>
+    </div>
+
+    <div id="inGameInfo">
+      <h1>The Screen reads:</h1>
+      <h1 id="question"></h1>
+      <h1 id="attempts" hidden>Attempts remaining: 3</h1>
+    </div>
+
+    <div id="gameWonInfo">
+      <h1 id="h">SUCCESS!</h1>
+      <em>That was close!</em>
+      <p> After disarming the alarm, you carefully climb into the vent shaft and continue into the compound in search of the Executive Lounge, where Quirino is sure to be...</p>
+      <button id="continue" class="button1" onclick="continueGame();"><span>Continue</span></button>
+    </div>
+
+    <div id="gameLostInfo">
+      <h1 id="h">MISSION FAILED!</h1>
+      <p>Uh oh! The alarm went off! As you scramble to hide, a group of guards runs around the corner! As they bark orders in spanish, one of the guards raises his rifle, aiming it directly at your chest...</p>
+      <button id="continue" class="button1" onclick="continueGame();"><span>Continue</span></button>
+    </div>
+
+
+
+
+    <button id="useBandageButton" onclick="useBandages();">Use Bandages</button>
+    <div id="inventory" onmouseover="showInventory();" onmouseout="hideInventory();">
+      <p>Inventory</p>
+    </div>
+    <div id="inventorySection">
+      <p><u><b>Your Inventory:</b></u></p>
+      <p>Weapon > <span id="userWeapon"></span> </p>
+      <p>Equipment #1 > <span id="userEquipment1"></span> </p>
+      <p>Equipment #2 > <span id="userEquipment2"></span> </p>
+    </div>
+
+    <div id="healthBar">
+      <p id="yourHealth">Your Health:</p>
+      <div id="playerHealthBar">
+        <div id="playerHealthValue"></div>
+      </div>
+    </div>
+
+
+  </body>
+
+</html>

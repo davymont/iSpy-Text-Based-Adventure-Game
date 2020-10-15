@@ -1,0 +1,92 @@
+<!--Knife image from https://favpng.com/
+Edited Lockpick image from https://webstockreview.net
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iSPY - Equipment Selection</title>
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="SelectionScreen.css">
+    <script src="SelectionScreen.js"></script>
+
+    <audio loop id="menumusic" src="audio/menumusic.mp3" type="audio/mp3"></audio>
+
+  </head>
+  <body onload="fillName();">
+    <div class="wrapper">
+
+      <button id= "musicbtn" onclick="playMusic()">Music: Off</button>
+
+      <a href="../startPages/iSPYstartpage.html" id="restart">RESTART</a>
+      <div id="help" onmouseover="showHelp()" onmouseout="hideHelp()">HELP</div>
+      <label class="switch">
+        <input type="checkbox" id="easyReadCheckbox" onclick="easyRead();">
+        <span class="slider round"></span>
+      </label>
+      <div id="hidden">
+        <p>Hey, <span id="printName2"></span>, if you're looking for help, you're in the right place.</p>
+        <p> Use the < and > buttons to browse through the available tools for your mission. You can chose 1 weapon and 2 pieces of equipment. </p>
+        <p> When you've settled on the item you want, press 'choose' and it will be added to your inventory</p>
+        <p> Each tool can be used at various stages of the game, so it's upto you to chose what you think will be most useful</p>
+        <p> Good luck! </p>
+        <p id="fun">if you weren't looking for help and just came over here out of curiosity... What do you call a cow with really long legs?</p>
+        <p id="fun"><u>"High Steaks"</u></p>
+      </div>
+
+      <div id="selectionBox">
+
+        <div id="weaponSelection">
+          <div id="weaponSelectContent">
+            <p>Okay <span id="printName">[AGENTNAME]</span>, you must now choose your preferred <u>weapon</u> and <u>equipment</u> - </p>
+
+            <p>Weapon:</p>
+            <p id="currentWeapon">Knife</p>
+            <img id="currentWeaponPicture" src="images/knife.png" alt="Image of a Knife"><br>
+            <button id="traversers" onclick="changeSelectedWeapon(-1);">&#10094;</button>
+            <button id="traversers" onclick="changeSelectedWeapon(1);">&#10095;</button><br><br>
+
+            <button id="selectWeapon" onclick="chooseWeapon();"><span>Choose this weapon</span></button>
+          </div>
+        </div>
+
+        <div id="equipmentSelection">
+          <div id="equipmentSelectContent">
+            <p id="desc">Excellent choice. Now it's time to choose the <u>equipment</u> you'll bring in with you. <br><br>
+              You'll be travelling light, so pick the <u>two items</u> you think will be most useful.
+            </p>
+
+            <p id="alreadySelected">You chose the <u><span id="firstChoice"></span></u>.
+              Now choose your other piece of equipment.
+            </p>
+
+            <p>Available Items: </p>
+            <p id="currentEquipment">Bandages</p>
+            <img id="currentEquipmentPicture" src="images/bandages.png" alt="Image of Bandages"><br>
+            <button id="traversers" onclick="changeSelectedEquipment(-1);">&#10094;</button>
+            <button id="traversers" onclick="changeSelectedEquipment(1);">&#10095;</button><br><br>
+
+            <button id="equip1Button" onclick="selectEquipment1();"><span>Choose your first item</span></button>
+            <button id="equip2Button" onclick="selectEquipment2();"><span>Choose your second item</span></button>
+
+          </div>
+        </div>
+
+        <div id="preGameInfo">
+          <div id="preGameInfoContent">
+            <p>So, you've chosen <span id="e1"></span> and <span id="e2"></span> as your<br>
+              equipment, with a <span id="w1"></span> as your weapon. You're all set.
+            </p>
+            <p>Tell us when you're prepared and we'll get the drivers ready.</p>
+            <p>Good Luck...</p>
+            <button class="button1" onclick="nextPage(); globalTimer();"><span>Start Game</span></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
