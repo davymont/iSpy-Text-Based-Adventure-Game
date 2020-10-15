@@ -8,5 +8,5 @@
  
  Hosted at https://ispy-text-based-adventure-game.herokuapp.com/ 
  
- # iSpy Text Based Adventure Game
+ # 'iSpy' - A Text Based Adventure Game
  
