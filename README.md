@@ -4,9 +4,11 @@
  
  I created the theme and all of the graphics. My favourite part to make was the 'dog attack' part and the tidy countdown timer on this page.
  
- If on Chrome, some of the pages look better at 75%, this was a bug from testing exclusively in Safari that will be fixed soon!
+ If using Google Chrome browser, some of the pages look better at 75%, this was a bug from testing exclusively in Safari that will be fixed soon!
  
- Hosted at https://ispy-text-based-adventure-game.herokuapp.com/ 
+ Instructions to use: 
+ 
+ You'll find all you need at https://ispy-text-based-adventure-game.herokuapp.com/ . Good luck!
  
  # 'iSpy' - A Text Based Adventure Game
  
